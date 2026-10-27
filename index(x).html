@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atmos AI — Color & Weather Intelligence</title>
+<meta name="theme-color" content="#0b1020">
+<style>
+:root{--bg:#080d19;--panel:#10182a;--panel2:#141f34;--line:#25334b;--text:#f4f7ff;--muted:#91a0b8;--cyan:#5ce1e6;--violet:#9b8cff;--green:#67e8a5;--radius:22px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1a2b4c 0,transparent 38%),radial-gradient(ellipse at 100% 25%,#172747 0,transparent 35%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+.wrap{max-width:1240px;margin:auto;padding:28px 22px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:34px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--violet));display:grid;place-items:center;color:#08111f;font-size:22px;box-shadow:0 8px 30px #5ce1e633}.brand small{display:block;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1.8px;text-transform:uppercase}.status{display:flex;align-items:center;gap:9px;border:1px solid var(--line);background:#101a2c;padding:9px 13px;border-radius:999px;color:var(--muted);font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:#eab308;box-shadow:0 0 12px currentColor}.dot.ready{background:var(--green)}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:end;margin-bottom:25px}.eyebrow{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase}.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:-2px;margin:12px 0 15px;max-width:750px}.gradient{background:linear-gradient(95deg,#fff 10%,var(--cyan) 60%,var(--violet));color:transparent;background-clip:text}.hero p{color:var(--muted);max-width:650px;margin:0}.hero-note{border:1px solid var(--line);background:#10182ad9;border-radius:18px;padding:18px;color:var(--muted);font-size:13px}.hero-note strong{display:block;color:var(--text);margin-bottom:6px}.layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:20px}.panel{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(150deg,#121d31f5,#0e1627f5);box-shadow:0 18px 55px #0002;overflow:hidden}.panelhead{padding:20px 22px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}.panelhead h2{font-size:16px;margin:0}.sub{color:var(--muted);font-size:12px;margin-top:4px}.source{display:flex;gap:6px;background:#080f1e;border:1px solid var(--line);border-radius:12px;padding:5px}.source button{border:0;background:transparent;color:var(--muted);padding:8px 11px;border-radius:8px;font:inherit;font-size:12px;cursor:pointer}.source button.active{background:#243650;color:white}.stage{position:relative;margin:18px 20px 14px;aspect-ratio:4/3;min-height:260px;max-height:470px;border:1px dashed #344761;border-radius:18px;background:linear-gradient(145deg,#0a1323,#111e32);display:grid;place-items:center;overflow:hidden}.stage img,.stage video{position:absolute;width:100%;height:100%;object-fit:contain;background:#070b13;display:none}.stage img.show,.stage video.show{display:block}.empty{text-align:center;padding:24px;color:var(--muted);pointer-events:none}.uploadicon{width:58px;height:58px;border-radius:18px;background:#1b2b42;color:var(--cyan);display:grid;place-items:center;font-size:27px;margin:0 auto 14px}.empty strong{display:block;color:#e8efff;font-size:16px;margin-bottom:5px}.empty span{font-size:12px}.stage .livebadge{position:absolute;top:13px;left:13px;z-index:2;display:none;background:#e11d48;color:white;font-size:10px;letter-spacing:1px;font-weight:800;padding:6px 9px;border-radius:7px}.stage .livebadge.show{display:block}.controls{padding:0 20px 20px;display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:12px;padding:11px 15px;font:600 13px inherit;cursor:pointer;color:var(--text);background:#18243a;transition:.18s}.btn:hover{transform:translateY(-1px);border-color:#5c7ba5}.btn.primary{background:linear-gradient(100deg,#5ce1e6,#a2a0ff);color:#07111f;border:0}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}.hidden{display:none!important}.hint{padding:0 22px 18px;color:var(--muted);font-size:11px}.result-top{display:flex;align-items:center;gap:15px;padding:20px 22px 17px}.weather-icon{width:64px;height:64px;flex-shrink:0;display:grid;place-items:center;border-radius:20px;background:linear-gradient(135deg,#1f4053,#2b2a55);font-size:30px}.result-top .label{font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted)}.result-top h3{font-size:26px;margin:1px 0;letter-spacing:-.7px}.confidence{margin-left:auto;text-align:right}.confidence strong{font-size:22px;color:var(--green);display:block}.confidence span{font-size:10px;color:var(--muted)}.divider{height:1px;background:var(--line);margin:0 22px}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:17px 22px}.metric{background:#0b1424;border:1px solid #1f2d43;border-radius:14px;padding:14px}.metric .name{font-size:11px;color:var(--muted);margin-bottom:8px}.metric .value{font-size:19px;font-weight:750}.metric .detail{font-size:11px;color:var(--muted);margin-top:3px}.sectiontitle{display:flex;justify-content:space-between;align-items:center;padding:5px 22px 10px;font-size:12px;font-weight:700}.sectiontitle span{font-weight:400;color:var(--muted);font-size:10px}.colors{padding:0 22px 21px;display:grid;gap:10px}.colorrow{display:grid;grid-template-columns:70px 1fr 44px;align-items:center;gap:9px;font-size:11px;color:#c9d4e7}.bar{height:7px;border-radius:99px;background:#202d41;overflow:hidden}.bar i{display:block;height:100%;width:0;border-radius:99px;transition:width .35s}.colorrow b{text-align:right;font-weight:600;color:var(--muted)}.weather-nonconcern .weather-only{display:none}.weather-nonconcern .result-top{padding-bottom:17px}.foot{display:flex;justify-content:space-between;gap:12px;padding:14px 22px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}.foot .ok{color:var(--green)}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#17243a;border:1px solid #40536e;border-radius:12px;padding:12px 16px;color:white;box-shadow:0 10px 40px #0007;z-index:5;display:none;max-width:90vw;font-size:13px}.toast.show{display:block}.bottom{margin-top:20px;color:var(--muted);font-size:11px;text-align:center}
+@media(max-width:850px){.hero,.layout{grid-template-columns:1fr}.hero-note{display:none}.wrap{padding:20px 14px 35px}.top{margin-bottom:27px}.hero h1{letter-spacing:-1.2px}.stage{min-height:220px;margin:15px 14px 12px}.controls{padding:0 14px 16px}.panelhead{padding:17px 15px 0}.result-top{padding:18px 15px}.metrics{padding:15px}.colors{padding:0 15px 18px}.sectiontitle{padding-left:15px;padding-right:15px}.divider{margin:0 15px}.foot{padding:13px 15px}}
+</style></head>
+<body><div class="wrap">
+<header class="top"><div class="brand"><div class="logo">◈</div><div>ATMOS AI<small>Visual intelligence lab</small></div></div><div class="status"><i class="dot" id="dot"></i><span id="modelStatus">Loading neural model…</span></div></header>
+<section class="hero"><div><div class="eyebrow">Computer vision · TensorFlow.js</div><h1>Read the world<br><span class="gradient">in every frame.</span></h1><p>Detect weather-related scenes when present. If the image is not weather-related or the prediction is uncertain, ATMOS AI switches to color-only analysis — from a photo or live camera.</p></div><div class="hero-note"><strong>◉ Private by design</strong>Inference runs locally in your browser after the model loads. Your selected image is not uploaded to a server.</div></section>
+<main class="layout">
+<section class="panel"><div class="panelhead"><div><h2>Image input</h2><div class="sub">Choose a source to begin analysis</div></div><div class="source"><button id="uploadTab" class="active">Photo</button><button id="cameraTab">Camera</button></div></div>
+<div class="stage" id="stage"><div class="empty" id="empty"><div class="uploadicon">↥</div><strong>Drop an image here</strong><span>or choose a file below · JPG, PNG, WEBP</span></div><img id="preview" alt="Selected image preview"><video id="video" autoplay playsinline muted></video><div class="livebadge" id="liveBadge">● LIVE ANALYSIS</div></div>
+<input id="file" type="file" accept="image/*" class="hidden">
+<div class="controls"><button class="btn primary" id="chooseBtn">＋ Choose image</button><button class="btn" id="startCam">◎ Start camera</button><button class="btn hidden" id="captureBtn">◉ Capture frame</button><button class="btn hidden" id="stopCam">Stop camera</button><button class="btn" id="analyzeBtn" disabled>Analyze image ↗</button></div><div class="hint" id="inputHint">Tip: use a clear outdoor image for more useful weather predictions.</div></section>
+<section class="panel"><div class="panelhead"><div><h2>Analysis dashboard</h2><div class="sub" id="analysisStatus">Waiting for an image</div></div><div class="status"><i class="dot" id="runDot"></i><span id="runStatus">Standby</span></div></div>
+<div class="result-top"><div class="weather-icon" id="weatherIcon">☁</div><div><div class="label">Predicted weather</div><h3 id="weather">Awaiting input</h3><div class="sub" id="weatherNote">Run an analysis to see predictions</div></div><div class="confidence"><strong id="confidence">—</strong><span>MODEL SCORE</span></div></div><div class="divider"></div>
+<div class="metrics"><div class="metric weather-only"><div class="name">☼ Brightness</div><div class="value" id="brightness">—</div><div class="detail">Image illumination class</div></div><div class="metric weather-only"><div class="name">◒ Color temperature</div><div class="value" id="temperature">—</div><div class="detail">Visual tone estimate</div></div><div class="metric"><div class="name">◉ Dominant color</div><div class="value" id="dominant">—</div><div class="detail" id="dominantDetail">Largest predicted color share</div></div><div class="metric"><div class="name">⚡ Inference time</div><div class="value" id="latency">—</div><div class="detail">Browser model execution</div></div><div class="metric"><div class="name">↔ Motion</div><div class="value" id="motionValue">—</div><div class="detail" id="motionDetail">Camera movement estimate</div></div></div>
+<div class="sectiontitle">Color composition <span>11 model outputs</span></div><div class="colors" id="colors"></div>
+<div class="foot"><span id="engine" class="ok">TensorFlow.js · initializing</span><span>224 × 224 input</span></div></section></main>
+<div class="bottom">ATMOS AI · Color & Weather Condition Analyzer · Weather mode uses model predictions plus simple brightness/dark-pixel cues. Night is estimated from dark pixels; this is a heuristic, not a dedicated trained night class.</div></div><div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const COL=["red","orange","yellow","green","cyan","blue","purple","pink","black","white","gray"];
+const HEX={red:"#f45b69",orange:"#ff9f43",yellow:"#ffd166",green:"#56d68b",cyan:"#45d9e8",blue:"#5b8cff",purple:"#a78bfa",pink:"#f472b6",black:"#64748b",white:"#e2e8f0",gray:"#9ca3af"};
+const WX=["cloudy","foggy","other","rainy","shine","sunrise"], BR=["dark","medium","bright"], TP=["cool","neutral","warm"];
+let model=null,stream=null,camMode=false,busy=false,loop=null,currentSource=null,lastObjectUrl=null,motionLoop=null,previousMotionFrame=null,motionScore=0;
+$("colors").innerHTML=COL.map(c=>`<div class="colorrow"><span>${c[0].toUpperCase()+c.slice(1)}</span><div class="bar"><i id="bar-${c}" style="background:${HEX[c]}"></i></div><b id="pct-${c}">—</b></div>`).join("");
+function toast(s){$("toast").textContent=s;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),3200)}
+async function init(){try{await tf.ready();model=await tf.loadLayersModel("tfjs_model/model.json");$("modelStatus").textContent="Neural model ready";$("dot").classList.add("ready");$("engine").textContent="TensorFlow.js · model loaded";$("analyzeBtn").disabled=!currentSource; if(currentSource)analyze(currentSource); }catch(e){$("modelStatus").textContent="Model failed to load";$("engine").textContent="Model unavailable";toast("Could not load model. Make sure tfjs_model/ and all shard files sit beside index.html, then serve this folder using localhost.");console.error(e)}}
+function showPreview(src){$("preview").src=src;$("preview").classList.add("show");$("video").classList.remove("show");$("empty").classList.add("hidden");currentSource=$("preview");$("analyzeBtn").disabled=false;$("analysisStatus").textContent="Image ready for analysis"}
+$("chooseBtn").onclick=()=>$("file").click();$("file").onchange=e=>{const f=e.target.files?.[0];if(!f)return;if(!f.type.startsWith("image/"))return toast("Please select a valid image file.");if(lastObjectUrl)URL.revokeObjectURL(lastObjectUrl);lastObjectUrl=URL.createObjectURL(f);const im=new Image();im.onload=()=>{stopCamera();camMode=false;setTab(false);showPreview(lastObjectUrl);$("inputHint").textContent=`${f.name} · ${(f.size/1024).toFixed(0)} KB`;if(model)analyze(im);else currentSource=im};im.onerror=()=>toast("This image could not be opened.");im.src=lastObjectUrl};
+$("stage").addEventListener("dragover",e=>{e.preventDefault();$("stage").style.borderColor="#5ce1e6"});$("stage").addEventListener("dragleave",()=>{$("stage").style.borderColor=""});$("stage").addEventListener("drop",e=>{e.preventDefault();$("stage").style.borderColor="";const f=e.dataTransfer.files?.[0];if(f){const dt=new DataTransfer();dt.items.add(f);$("file").files=dt.files;$("file").dispatchEvent(new Event("change"))}});
+function setTab(cam){$("uploadTab").classList.toggle("active",!cam);$("cameraTab").classList.toggle("active",cam);$("chooseBtn").classList.toggle("hidden",cam);$("startCam").classList.toggle("hidden",!cam||!!stream);$("captureBtn").classList.toggle("hidden",!cam||!stream);$("stopCam").classList.toggle("hidden",!cam||!stream);$("liveBadge").classList.toggle("show",cam&&!!stream)}
+$("uploadTab").onclick=()=>{stopCamera();camMode=false;setTab(false);$("inputHint").textContent="Tip: use a clear outdoor image for more useful weather predictions."};
+$("cameraTab").onclick=()=>{camMode=true;setTab(true);$("inputHint").textContent="Camera access requires permission. Use localhost or HTTPS."};
+$("startCam").onclick=startCamera;$("stopCam").onclick=()=>{stopCamera();setTab(true)};$("captureBtn").onclick=()=>{if(!$("video").videoWidth)return;const c=document.createElement("canvas");c.width=$("video").videoWidth;c.height=$("video").videoHeight;c.getContext("2d").drawImage($("video"),0,0);showPreview(c.toDataURL("image/jpeg",.92));stopCamera();camMode=false;setTab(false);if(model)analyze($("preview"))};
+function updateMotion(){
+ if(!stream||!$("video").videoWidth)return;
+ const v=$("video"),c=document.createElement("canvas");c.width=48;c.height=36;
+ const x=c.getContext("2d",{willReadFrequently:true});x.drawImage(v,0,0,48,36);
+ const d=x.getImageData(0,0,48,36).data,gray=new Uint8Array(48*36);
+ for(let i=0;i<gray.length;i++)gray[i]=(d[i*4]*.299+d[i*4+1]*.587+d[i*4+2]*.114);
+ if(previousMotionFrame){let sum=0;for(let i=0;i<gray.length;i++)sum+=Math.abs(gray[i]-previousMotionFrame[i]);motionScore=sum/gray.length;}
+ previousMotionFrame=gray;
+ const label=motionScore<2.2?"Low":motionScore<7?"Moderate":"High";
+ $("motionValue").textContent=label;$("motionDetail").textContent="Frame change score: "+motionScore.toFixed(1);
+}
+async function startCamera(){if(!navigator.mediaDevices?.getUserMedia)return toast("Camera API unavailable. Open the site using localhost or HTTPS.");try{stopCamera();stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:"environment"},width:{ideal:1280},height:{ideal:720}},audio:false});$("video").srcObject=stream;$("video").classList.add("show");$("preview").classList.remove("show");$("empty").classList.add("hidden");await $("video").play();currentSource=$("video");previousMotionFrame=null;motionScore=0;setTab(true);$("analysisStatus").textContent="Live camera connected";if(loop)clearInterval(loop);if(motionLoop)clearInterval(motionLoop);motionLoop=setInterval(updateMotion,450);loop=setInterval(()=>{if(model&&stream&&!busy)analyze($("video"))},1300);if(model)analyze($("video"))}catch(e){toast("Camera unavailable: allow permission and close other apps using the camera.");console.error(e)}}
+function stopCamera(){if(loop){clearInterval(loop);loop=null}if(motionLoop){clearInterval(motionLoop);motionLoop=null}previousMotionFrame=null;if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}$("video").srcObject=null;$("video").classList.remove("show");$("liveBadge").classList.remove("show")}
+$("analyzeBtn").onclick=()=>{if(currentSource&&model)analyze(currentSource);else if(!model)toast("Model is still loading.")};
+function argmax(a){let k=0;for(let i=1;i<a.length;i++)if(a[i]>a[k])k=i;return k}
+async function analyze(src){
+ if(!model||busy||!(src.videoWidth||src.naturalWidth))return;
+ busy=true;$("runStatus").textContent="Analyzing";$("runDot").style.background="#fbbf24";
+ const start=performance.now();
+ try{
+  const pred=tf.tidy(()=>{const x=tf.browser.fromPixels(src).resizeBilinear([224,224]).toFloat().div(127.5).sub(1).expandDims(0);return model.predict(x)});
+  const vals=await Promise.all(pred.map(t=>t.data()));pred.forEach(t=>t.dispose());
+  const p=Array.from(vals[0]),br=Array.from(vals[1]),tp=Array.from(vals[2]),wx=Array.from(vals[3]);
+  const wi=argmax(wx),bi=argmax(br),ti=argmax(tp),ci=argmax(p),confidence=Math.max(...wx);
+  // Derive scene cues from model outputs and image pixels. This is a practical heuristic, not a dedicated scene detector.
+  const c=document.createElement("canvas");c.width=64;c.height=64;
+  const cx=c.getContext("2d",{willReadFrequently:true});cx.drawImage(src,0,0,64,64);
+  const px=cx.getImageData(0,0,64,64).data;let lum=0,black=0,bright=0,skyPixels=0,blueSky=0,neutralBright=0,topN=0;
+  // Check the upper part of the frame for sky-like pixels, so an indoor/person photo
+  // is less likely to be treated as a weather scene just because the classifier is overconfident.
+  for(let y=0;y<64;y++)for(let x=0;x<64;x++){
+   const i=(y*64+x)*4,r=px[i],g=px[i+1],b=px[i+2];
+   const l=(0.2126*r+0.7152*g+0.0722*b)/255;
+   lum+=l;if(l<0.13)black++;if(l>0.72)bright++;
+   if(y<34){
+    topN++;
+    const mx=Math.max(r,g,b),mn=Math.min(r,g,b),sat=mx?((mx-mn)/mx):0;
+    if(b>r*1.06 && b>g*1.02 && l>0.28)blueSky++;
+    if(sat<0.22 && l>0.48 && l<0.94)neutralBright++;
+    if((b>r*1.04 && b>g*1.01 && l>0.25)||(sat<0.25&&l>0.43&&l<0.96))skyPixels++;
+   }
+  }
+  const n=px.length/4,meanLum=lum/n,blackRatio=black/n,brightRatio=bright/n;
+  const blueRatio=blueSky/topN,neutralRatio=neutralBright/topN,skyRatio=skyPixels/topN;
+  const skyCue=blueRatio>0.10 || (neutralRatio>0.42 && skyRatio>0.48);
+  const night=(blackRatio>0.48 || (bi===0 && meanLum<0.18));
+  const sunny=!night && skyCue && (WX[wi]==="shine" || (meanLum>0.62 && brightRatio>0.28 && confidence>=0.35));
+  const rain=!night && skyCue && !sunny && WX[wi]==="rainy" && confidence>=0.35;
+  const cloudy=!night && skyCue && !sunny && !rain && WX[wi]==="cloudy" && confidence>=0.35;
+  const foggy=!night && skyCue && !sunny && !rain && !cloudy && WX[wi]==="foggy" && confidence>=0.35;
+  const sunrise=!night && skyCue && !sunny && !rain && !cloudy && !foggy && WX[wi]==="sunrise" && confidence>=0.45;
+  const isWeatherConcern=night||sunny||rain||cloudy||foggy||sunrise;
+  document.querySelector(".layout .panel:nth-child(2)").classList.toggle("weather-nonconcern",!isWeatherConcern);
+  if(isWeatherConcern){
+   const label=night?"night":sunny?"sunny":rain?"rainy":cloudy?"cloudy":foggy?"foggy":"sunrise";
+   $("weather").textContent=label==="night"?"Night":label[0].toUpperCase()+label.slice(1);
+   $("weatherIcon").textContent=({"night":"🌙","cloudy":"☁","foggy":"≋","rainy":"🌧","sunny":"☀","sunrise":"🌅"})[label]||"◈";
+   $("confidence").textContent=(label==="night"?blackRatio*100:confidence*100).toFixed(1)+"%";
+   $("weatherNote").textContent=label==="night"?"High dark-pixel ratio · night estimate":(label==="sunny"?"Bright scene / sunshine detected":"Weather-related scene detected");
+   $("brightness").textContent=BR[bi][0].toUpperCase()+BR[bi].slice(1);
+   $("temperature").textContent=TP[ti][0].toUpperCase()+TP[ti].slice(1);
+  }else{
+   $("weather").textContent="Weather non-concern";
+   $("weatherIcon").textContent="◉";
+   $("confidence").textContent="—";
+   $("weatherNote").textContent="No clear sky/weather cue · showing colors and motion only";
+   $("brightness").textContent="—";$("temperature").textContent="—";
+  }
+  if(!stream){$("motionValue").textContent="N/A";$("motionDetail").textContent="Start camera for live motion"}
+  $("dominant").textContent=COL[ci][0].toUpperCase()+COL[ci].slice(1);
+  $("dominantDetail").textContent=(p[ci]*100).toFixed(1)+"% predicted share";
+  COL.forEach((color,i)=>{$("bar-"+color).style.width=Math.max(0,Math.min(100,p[i]*100))+"%";$("pct-"+color).textContent=(p[i]*100).toFixed(1)+"%"});
+  $("latency").textContent=(performance.now()-start).toFixed(0)+" ms";
+  $("analysisStatus").textContent=(isWeatherConcern?"Weather scene analyzed":"Color-only analysis")+" · "+new Date().toLocaleTimeString();
+  $("runStatus").textContent=isWeatherConcern?"Weather + colors":"Colors only";$("runDot").style.background="#67e8a5";
+ }catch(e){console.error(e);$("runStatus").textContent="Inference error";toast("Analysis failed. Check model files and browser console.")}
+ finally{busy=false}
+}
+init();
+</script></body></html>
