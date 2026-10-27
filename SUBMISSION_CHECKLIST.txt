@@ -14,9 +14,10 @@ STILL REQUIRES THE OWNER'S REAL LINKS / ACTIONS
 [ ] Run held-out evaluation and insert real metrics
 [✓] Push package to the public GitHub repository
 [ ] Deploy/redeploy on Vercel and test model.json + all shard requests
-[ ] Add actual GitHub and Vercel URLs to the site and README
+[✓] Add actual GitHub URL to the site and README
+[ ] Add actual Vercel URL to the site and README
 [ ] Record narration using the provided script and upload to YouTube (Public/Unlisted)
-[ ] Add actual YouTube URL to the site and README
+[✓] Add actual YouTube URL to the site and README
 [ ] Publish LinkedIn post and add the URL
 [ ] Submit instructor's final form
 

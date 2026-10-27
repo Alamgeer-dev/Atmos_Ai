@@ -34,13 +34,13 @@ Then open `http://localhost:8000`.
 3. Choose Framework Preset: **Other**.
 4. For a plain static site, leave Build Command empty and set Output Directory to `.` if prompted.
 5. Deploy and verify that the homepage, `tfjs_model/model.json`, every shard, report, and presentation open correctly.
-6. Add the real Vercel URL, dataset URL, and YouTube URL to the site/README after confirming them.
+6. Add the real Vercel URL and dataset URL to the site/README after confirming them.
 
 ## Links to fill before final submission
 - Dataset: PENDING — insert the verified URL for the exact dataset used to train this ATMOS AI model.
 - GitHub: https://github.com/Alamgeer-dev/Atmos_Ai
 - Vercel: PENDING — insert the deployed Vercel URL.
-- YouTube: PENDING — insert the public/unlisted recorded presentation URL.
+- YouTube: https://youtu.be/zhpYIWBYa1U — ATMOS AI promotional video on the GAG Tech channel.
 - LinkedIn: PENDING — insert the LinkedIn post URL.
 
 ## Evaluation
