@@ -1,0 +1,33 @@
+{
+  "colors": [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "cyan",
+    "blue",
+    "purple",
+    "pink",
+    "black",
+    "white",
+    "gray"
+  ],
+  "brightness": [
+    "dark",
+    "medium",
+    "bright"
+  ],
+  "temperature": [
+    "cool",
+    "neutral",
+    "warm"
+  ],
+  "weather": [
+    "cloudy",
+    "foggy",
+    "other",
+    "rainy",
+    "shine",
+    "sunrise"
+  ]
+}
