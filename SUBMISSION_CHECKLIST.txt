@@ -1,0 +1,23 @@
+ATMOS AI — COURSE REQUIREMENTS TRACKER
+
+READY IN THIS PACKAGE
+[✓] Static website source and TensorFlow.js model weights organized
+[✓] Model labels included
+[✓] Project report (PDF + DOCX) prepared from available artifacts
+[✓] Presentation PPTX prepared
+[✓] Slide-by-slide voiceover script prepared
+[✓] Website includes links to report, presentation, and voiceover script
+
+STILL REQUIRES THE OWNER'S REAL LINKS / ACTIONS
+[ ] Add exact dataset URL and license details used for ATMOS AI training
+[ ] Add dataset counts/splits and training procedure from the original training run
+[ ] Run held-out evaluation and insert real metrics
+[✓] Push package to the public GitHub repository
+[ ] Deploy/redeploy on Vercel and test model.json + all shard requests
+[ ] Add actual GitHub and Vercel URLs to the site and README
+[ ] Record narration using the provided script and upload to YouTube (Public/Unlisted)
+[ ] Add actual YouTube URL to the site and README
+[ ] Publish LinkedIn post and add the URL
+[ ] Submit instructor's final form
+
+Do not claim a task is complete until its link/action has been verified.

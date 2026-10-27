@@ -1,0 +1,34 @@
+ATMOS AI — COLOR & WEATHER INTELLIGENCE
+Slide-by-slide voiceover script
+
+SLIDE 1: ATMOS AI
+Hello everyone. Today I will present ATMOS AI, a browser-based deep learning project for visual color and weather-related scene analysis.
+
+SLIDE 2: Problem & Motivation
+The motivation is to combine several visual cues in one simple interface. It analyzes an image and shows color, brightness, tone, and possible weather-related labels. It is not intended to replace a professional weather service.
+
+SLIDE 3: Project Objectives
+The main objectives are to make image input easy, run inference in the browser, produce four prediction groups, and display the results clearly.
+
+SLIDE 4: Dataset & Labels
+The model has four output heads. The labels and their counts are visible in the provided class metadata. The exact dataset source and sample counts are not present in the uploaded artifacts, so these need to be documented from the original dataset before final submission.
+
+SLIDE 5: Model Architecture
+The exported model uses MobileNetV2 features and a shared dense representation. Four separate softmax heads produce the different categories. The model and its weight shards are included in the package.
+
+SLIDE 6: Application Workflow
+First, the user selects a photo or grants camera access. The image is resized and normalized, then passed into the model. The interface displays the outputs and also uses a small pixel-based heuristic for some weather-related decisions.
+
+SLIDE 7: Technology Stack
+The frontend is built with HTML, CSS, and JavaScript. TensorFlow.js runs the model in the browser. The camera uses the browser media API, which requires user permission and HTTPS or localhost.
+
+SLIDE 8: Results & Evaluation
+The provided files verify the model structure and the application workflow. However, there are no measured held-out accuracy, precision, recall, F1, or confusion matrix values in the supplied files. Those should be added after running a proper evaluation.
+
+SLIDE 9: Limitations & Future Work
+Important next steps are to document the dataset and measure performance. The weather heuristic can fail in difficult scenes, and visual temperature is only a tone category, not degrees Celsius or Fahrenheit.
+
+SLIDE 10: Deployment & Submission
+For final submission, the repository and Vercel site must be public and all model assets must load. Record this presentation, upload it to YouTube, then add the real links to the website and submission form. Thank you.
+
+Recording reminder: speak clearly, keep the slide visible while narrating, export as MP4, then upload to YouTube as Public or Unlisted.

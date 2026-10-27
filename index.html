@@ -43,6 +43,17 @@
 }
 @media(max-width:380px) and (orientation:portrait){.result-top{gap:5px}.result-top h3{font-size:14px}.result-top .sub{max-width:125px}.metric .name{font-size:7px}.colorrow{grid-template-columns:35px minmax(0,1fr) 24px;font-size:7px}.colorrow b{font-size:7px}.btn{padding:6px 6px;font-size:9px}}
 
+
+.resources{max-width:1240px;margin:24px auto 0;padding:0 22px 28px}
+.resources-head{margin:0 0 14px;color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.resource-card{display:block;padding:17px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(150deg,#121d31f5,#0e1627f5);color:var(--text);text-decoration:none;min-height:100px}
+.resource-card strong{display:block;font-size:14px;margin-bottom:6px}
+.resource-card span{display:block;color:var(--muted);font-size:12px;line-height:1.5}
+.resource-card:hover{border-color:var(--cyan)}
+.resource-pending{opacity:.8}
+@media(max-width:850px){.resources{padding:0 14px 22px}.resource-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.resource-card{padding:13px;min-height:90px}}
+@media(max-width:480px){.resource-grid{grid-template-columns:1fr 1fr}.resource-card strong{font-size:12px}.resource-card span{font-size:11px}}
 </style></head>
 <body><div class="wrap">
 <header class="top"><div class="brand"><div class="logo">◈</div><div>ATMOS AI<small>Visual intelligence lab</small></div></div><div class="status"><i class="dot" id="dot"></i><span id="modelStatus">Loading neural model…</span></div></header>
@@ -57,6 +68,31 @@
 <div class="metrics"><div class="metric weather-only"><div class="name">☼ Brightness</div><div class="value" id="brightness">—</div><div class="detail">Image illumination class</div></div><div class="metric weather-only"><div class="name">◒ Color temperature</div><div class="value" id="temperature">—</div><div class="detail">Visual tone estimate</div></div><div class="metric"><div class="name">◉ Dominant color</div><div class="value" id="dominant">—</div><div class="detail" id="dominantDetail">Largest predicted color share</div></div><div class="metric"><div class="name">⚡ Inference time</div><div class="value" id="latency">—</div><div class="detail">Browser model execution</div></div><div class="metric"><div class="name">↔ Motion</div><div class="value" id="motionValue">—</div><div class="detail" id="motionDetail">Camera movement estimate</div></div></div>
 <div class="sectiontitle">Color composition <span>11 model outputs</span></div><div class="colors" id="colors"></div>
 <div class="foot"><span id="engine" class="ok">TensorFlow.js · initializing</span><span>224 × 224 input</span></div></section></main>
+
+<section class="resources" aria-label="Project resources">
+  <div class="resources-head">Project resources · semester submission</div>
+  <div class="resource-grid">
+    <a class="resource-card" href="assets/ATMOS_AI_Project_Report.pdf" target="_blank" rel="noopener">
+      <strong>📄 Project Report</strong><span>Problem, model architecture, pipeline, limitations and evaluation checklist.</span>
+    </a>
+    <a class="resource-card" href="assets/ATMOS_AI_Presentation.pptx">
+      <strong>🎞 Presentation</strong><span>Semester project slides; narration script is included in the package.</span>
+    </a>
+    <a class="resource-card" href="assets/ATMOS_AI_Voiceover_Script.txt">
+      <strong>🎙 Voiceover Script</strong><span>Slide-by-slide script to record and upload to YouTube.</span>
+    </a>
+    <a class="resource-card" href="https://www.kaggle.com/datasets/vijaygiitk/multiclass-weather-dataset" target="_blank" rel="noopener">
+      <strong>📦 Dataset — Multiclass Weather</strong><span>Source: Kaggle · vijaygiitk/multiclass-weather-dataset. Open the original dataset page.</span>
+    </a>
+    <a class="resource-card" href="https://github.com/Alamgeer-dev/Atmos_Ai" target="_blank" rel="noopener">
+      <strong>💻 GitHub Repository</strong><span>View the public ATMOS AI source and model files.</span>
+    </a>
+    <div class="resource-card resource-pending">
+      <strong>▶ YouTube Demo</strong><span>Add the public or unlisted video URL after recording the presentation.</span>
+    </div>
+  </div>
+</section>
+
 <div class="bottom">ATMOS AI · Color & Weather Condition Analyzer · Weather mode uses model predictions plus simple brightness/dark-pixel cues. Night is estimated from dark pixels; this is a heuristic, not a dedicated trained night class.</div></div><div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
 <script>
@@ -143,7 +179,7 @@ async function analyze(src){
    $("weatherNote").textContent="No clear sky/weather cue · showing colors and motion only";
    $("brightness").textContent="—";$("temperature").textContent="—";
   }
-  if(!stream){$("motionValue").textContent="N/A";$("motionDetail").textContent="Start camera for live motion"} 
+  if(!stream){$("motionValue").textContent="N/A";$("motionDetail").textContent="Start camera for live motion"}
   $("dominant").textContent=COL[ci][0].toUpperCase()+COL[ci].slice(1);
   $("dominantDetail").textContent=(p[ci]*100).toFixed(1)+"% predicted share";
   COL.forEach((color,i)=>{$("bar-"+color).style.width=Math.max(0,Math.min(100,p[i]*100))+"%";$("pct-"+color).textContent=(p[i]*100).toFixed(1)+"%"});
